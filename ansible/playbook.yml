@@ -1,0 +1,14 @@
+- name: Copy War file
+  host: web
+  become: yes
+  tasks:
+    - name: Copy War file to Tomcat
+      copy:
+        src: '/var/snap/jenkins/4874/workspace/MyAnsibleApp/target/MyAnsibleApp.war'
+        dest: '/opt/tomcat/webapps/'
+        remote_src: no
+        
+    - name: Restart Tomcat
+      systemd:
+        name: tomcat
+        state: restarted
