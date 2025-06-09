@@ -1,5 +1,5 @@
 - name: Copy War file
-  host: web
+  hosts: web
   become: yes
   tasks:
     - name: Copy War file to Tomcat
